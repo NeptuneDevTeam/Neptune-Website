@@ -1,9 +1,6 @@
 package NeptuneWebsite.Backend.model;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 
 /*
 
@@ -13,6 +10,8 @@ Role: Teacher, Student, or Admin.
 SchoolID: Links to the school entity.
 AccountStatus: Active, Inactive.
  */
+@Entity
+@Table(name = "users")
 public abstract class User {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -22,7 +21,9 @@ public abstract class User {
     private String name;
     private Long school;
     private Boolean accountStatus;
-    @OneToOne(mappedBy = "user")
+
+    @OneToOne
+    @JoinColumn(name = "student_id")
     private Student student;
 
     public User() {
