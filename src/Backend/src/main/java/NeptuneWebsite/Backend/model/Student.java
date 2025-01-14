@@ -16,6 +16,7 @@ private boolean iepStatus;
 private boolean adhdStatus;
 private String customSettings;
 
+
 @OneToOne(mappedBy = "student")
 private User user;
 
