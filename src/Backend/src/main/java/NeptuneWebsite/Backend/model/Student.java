@@ -1,22 +1,22 @@
 package NeptuneWebsite.Backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.springframework.stereotype.Service;
 
 @Entity
 public class Student {
 
 @Id
-@GeneratedValue(strategy = GenerationType.AUTO)
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 
 private int gradeLevel;
 private boolean iepStatus;
 private boolean adhdStatus;
 private String customSettings;
+
+@OneToOne(mappedBy = "user_id")
+private User user;
 
 private Student() {}
 
