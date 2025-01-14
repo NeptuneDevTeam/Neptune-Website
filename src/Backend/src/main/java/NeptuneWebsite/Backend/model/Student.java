@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.springframework.stereotype.Service;
 
 @Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Student {
 
 @Id
@@ -15,7 +16,7 @@ private boolean iepStatus;
 private boolean adhdStatus;
 private String customSettings;
 
-@OneToOne(mappedBy = "user_id")
+@OneToOne(mappedBy = "student")
 private User user;
 
 private Student() {}
