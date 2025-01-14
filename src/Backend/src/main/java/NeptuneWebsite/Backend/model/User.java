@@ -3,6 +3,7 @@ package NeptuneWebsite.Backend.model;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 
 /*
 
@@ -21,6 +22,8 @@ public abstract class User {
     private String name;
     private Long school;
     private Boolean accountStatus;
+    @OneToOne(mappedBy = "user")
+    private Student student;
 
     public User() {
     }
